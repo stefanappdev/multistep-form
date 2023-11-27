@@ -1,32 +1,33 @@
-import React,{useState} from 'react'
-import SideBar from './components/SideBar.jsx'
-import {useSidebarContext} from './components/contexts/sidebarcontext.jsx'
+import React from 'react'
+import {Routes,Route} from 'react-router-dom'
+import SideBar from '../components/SideBar.jsx'
+import Personal_Info from '../components/Personal_Info.jsx';
+import Plans from '../components/Plans.jsx';
+import Addons from '../components/Addons.jsx';
+import Finish from '../components/Finish.jsx';
+import Thanks from '../components/Thanks.jsx';
+
+
 
 const Application = () => {
   
-  let SC=useSidebarContext();
- 
   
-  
-
-  const Update=()=>{
-     
-     SC.setStep(prevstep=>prevstep+1);
-  }
-
-  const checkStep=()=>{
-    return SC.step;
-  }
-
-
-
   return (
-    <React.Fragment>
-      <SideBar />
 
-     
-    {checkStep()===4?<button  onClick={Update} disabled>next step</button>:<button onClick={Update}>next step</button>}
-    <p>{checkStep()===4?"you have reached the end of the form":`you are at step ${checkStep()}` }</p>
+    <React.Fragment>
+   
+      <SideBar />
+  
+      <Routes>
+
+        <Route path='/' element={<Personal_Info />} />
+        <Route path='/plans' element={<Plans />} />
+        <Route path='/addons' element={<Addons />} />
+        <Route path='/finish' element={<Finish />} />
+        <Route path='/thanks' element={<Thanks />} />
+        
+      </Routes>
+    
     </React.Fragment>
 
   )

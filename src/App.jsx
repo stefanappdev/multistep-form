@@ -1,14 +1,16 @@
 import React from 'react'
 import Application from './Application.jsx'
-import {SidebarContextProvider} from './components/contexts/sidebarcontext.jsx'
+import { BrowserRouter as Router } from 'react-router-dom'
+import {SidebarContextProvider} from '../components/contexts/sidebarcontext.jsx'
 
 const App = () => {
  
   return (
-    <SidebarContextProvider>
-      <Application />
-    </SidebarContextProvider>
-  
+    <Router>
+      <SidebarContextProvider>
+        <Application />
+      </SidebarContextProvider>
+  </Router>
   )
 }
 
