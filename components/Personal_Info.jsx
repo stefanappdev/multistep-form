@@ -1,11 +1,12 @@
 import React,{useState} from 'react'
-import { useNavigate } from 'react-router-dom'
+
 import { UseformContext } from './contexts/formcontext'
 import "../styles/main.css"
 
 
 const Personal_Info = () => {
-  let navigate=useNavigate();
+  let FC=UseformContext();
+
   let btnstyle={
     borderRadius:"5px",
     width:"100px"
@@ -23,8 +24,7 @@ const Personal_Info = () => {
   
   const handleSubmit=(e)=>{
     e.preventDefault();
-    SC.setStep(prev=>prev+1);
-    navigate("/plans");  
+    FC.setshouldSubmit(true); 
   }
   
   function isValidPhoneNumber(phonenumber) {
@@ -81,11 +81,11 @@ const Personal_Info = () => {
               <p className='text-red-500 '>{phone_error}</p>
 
               {errs.every(err=>err==="")
-              ?<button style={btnstyle} className="p-4  mt-4 text-white  bg-sky-500" type='submit'>Next</button>
+              ?<button style={btnstyle} className="p-4  mt-4 text-white  bg-sky-500" type='submit'>Submit</button>
               
               :
               
-              <button disabled  style={btnstyle} className="p-4 mt-4 text-white bg-gray-400" type='submit'>Next</button>}
+              <button disabled  style={btnstyle} className="p-4 mt-4 text-white bg-gray-400" type='submit'>Submit</button>}
             
             
           </form>

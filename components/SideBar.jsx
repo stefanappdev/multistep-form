@@ -4,7 +4,7 @@ import {UseformContext } from './contexts/formcontext.jsx';
 
 const SideBar=()=> {
     let FC=UseformContext();
-    let step=FC.step;
+    let step=FC.steps;
     
 
     

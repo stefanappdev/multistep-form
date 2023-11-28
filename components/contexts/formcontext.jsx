@@ -5,10 +5,11 @@ import React, {useState,createContext, useContext } from "react";
 
  const FormContextProvider=({children})=>{
     const [step,setStep]=useState(1);
+    const[shouldSubmit,setshouldSubmit]=useState(false);
 
   
 
-    return <formContext.Provider value={{step,setStep}}>
+    return <formContext.Provider value={{shouldSubmit,setshouldSubmit,step,setStep}}>
         {children}
     </formContext.Provider>
     }
