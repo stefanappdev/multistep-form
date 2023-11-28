@@ -6,6 +6,7 @@ import Plans from '../components/Plans.jsx';
 import Addons from '../components/Addons.jsx';
 import Finish from '../components/Finish.jsx';
 import Thanks from '../components/Thanks.jsx';
+import FormNav from '../components/FormNav.jsx';
 
 
 
@@ -16,7 +17,9 @@ const Application = () => {
 
     <React.Fragment>
    
-      <SideBar />
+     
+      
+   <SideBar />
   
       <Routes>
 
@@ -27,6 +30,9 @@ const Application = () => {
         <Route path='/thanks' element={<Thanks />} />
         
       </Routes>
+
+
+      <FormNav />
     
     </React.Fragment>
 

@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { useNavigate } from 'react-router-dom'
-import { useSidebarContext } from './contexts/sidebarcontext'
+import { UseformContext } from './contexts/formcontext'
 import "../styles/main.css"
 
 
@@ -17,7 +17,7 @@ const Personal_Info = () => {
     phone:""
   });
 
-  let SC=useSidebarContext(); 
+
 
 
   
@@ -57,42 +57,42 @@ const Personal_Info = () => {
   let phone_error=form.phone!=""&&isValidPhoneNumber(form.phone)?"":" Phone number is empty or is invalid  ";
   let errs=[email_error,name_error,phone_error];
   return (
-    <React.Fragment>
+   
         
+        <div id="personal-info" className='flex p-4 mt-4 bg-gray-300 flex-col justify-center items-center'>
         
-        
-        <h1 class="p-4 text-2xl font-bold">Personal Info</h1>
+          <h1 class="p-4 text-2xl font-bold">Personal Info</h1>
 
-        <span class="p-4 text-lg font-semibold">Please provide your name,email and phone number</span>
+          <span class="p-4 text-lg font-semibold">Please provide your name,email and phone number</span>
 
-        <form class="p-4" onSubmit={handleSubmit}>
-            <label class="font-semibold" for="name">Name:</label>
-            <input  type="text" id="name" name="name" onChange={(e)=>setForm({...form,name:e.target.value})} value={form.name} placeholder=" e.g John Smith" required/>
-            <p className='text-red-500'>{name_error}</p>
-                
-           
-
-            <label class='font-semibold' for="email">Email Address:</label>
-            <input className='mt-4 font-semibold' type="email" id="email" name="email" onChange={(e)=>setForm({...form,email:e.target.value})} value={form.email} placeholder=" e.g JSmith@example.com" required/>
-            <p className='text-red-500'>{email_error}</p>
-
-            <label class='font-semibold' for="phone">Phone Number:</label>
-            <input class='mt-4 mb-4 font-semibold' type="text" id="phone" name="phone" value={form.phone} onChange={(e)=>setForm({...form,phone:e.target.value})} placeholder=" e.g 123 456 7890" required/>
-            <p className='text-red-500 '>{phone_error}</p>
-
-            {errs.every(err=>err==="")
-            ?<button style={btnstyle} className="p-4  mt-4 text-white  bg-sky-500" type='submit'>Next</button>
+          <form class="p-4 h-full" onSubmit={handleSubmit}>
+              <label class="font-semibold" for="name">Name:</label>
+              <input  type="text" id="name" name="name" onChange={(e)=>setForm({...form,name:e.target.value})} value={form.name} placeholder=" e.g John Smith" required/>
+              <p className='text-red-500'>{name_error}</p>
+                  
             
-            :
+
+              <label class='font-semibold' for="email">Email Address:</label>
+              <input className='mt-4 font-semibold' type="email" id="email" name="email" onChange={(e)=>setForm({...form,email:e.target.value})} value={form.email} placeholder=" e.g JSmith@example.com" required/>
+              <p className='text-red-500'>{email_error}</p>
+
+              <label class='font-semibold' for="phone">Phone Number:</label>
+              <input class='mt-4 mb-4 font-semibold' type="text" id="phone" name="phone" value={form.phone} onChange={(e)=>setForm({...form,phone:e.target.value})} placeholder=" e.g 123 456 7890" required/>
+              <p className='text-red-500 '>{phone_error}</p>
+
+              {errs.every(err=>err==="")
+              ?<button style={btnstyle} className="p-4  mt-4 text-white  bg-sky-500" type='submit'>Next</button>
+              
+              :
+              
+              <button disabled  style={btnstyle} className="p-4 mt-4 text-white bg-gray-400" type='submit'>Next</button>}
             
-            <button disabled  style={btnstyle} className="p-4 mt-4 text-white bg-gray-400" type='submit'>Next</button>}
-          
-          
-        </form>
+            
+          </form>
+
+        </div>
 
 
-
-    </React.Fragment>
   )
 }
 

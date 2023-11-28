@@ -1,9 +1,4 @@
-import React,{useState} from 'react'
-import "../styles/main.css"
-import {UseformContext } from './contexts/formcontext.jsx';
-
-const SideBar=()=> {
-    let FC=UseformContext();
+ let FC=useformContext();
     let step=FC.step;
     
 
@@ -81,6 +76,3 @@ const SideBar=()=> {
 
       </React.Fragment>
       )
-}
-
-export default SideBar
