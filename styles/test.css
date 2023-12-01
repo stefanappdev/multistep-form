@@ -1,0 +1,32 @@
+#FORM-CONTAINER{
+    overflow: hidden;
+}
+
+
+#PLANS-FORM{
+    position: absolute;
+    left: 540px;
+    top:60px;
+}
+
+#SUMMARY{
+    position: absolute;
+    left: 540px;
+    top:60px;
+}
+
+#PERSONAL_INFO{
+    position: static;
+    
+}
+
+#ADDONS-FORM{
+    position: absolute;
+    left: 540px;
+    top:60px;
+}
+
+h1,h2,h3,h4,h5,h6{
+    color:#102547
+    
+}
