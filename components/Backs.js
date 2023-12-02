@@ -10,6 +10,10 @@ const Back1=(e)=>{
     PLANSFORM.style.left="-200px";
     PersonalInfoForm.style.left="280px";  
     PersonalInfoForm.style.position="static";
+    let ProgressBarStep2=document.querySelector("#progressBar div:nth-of-type(2)");
+    ProgressBarStep2.style.backgroundColor="grey";
+    PersonalInfoForm.style.visibility="visible";
+   PLANSFORM.style.visibility="hidden";
 }
 
 //Go back from Addons to Plans
@@ -23,6 +27,10 @@ const Back2=(e)=>{
     ADDONSFORM.style.left="-200px"; 
     PLANSFORM.style.left="280px"; 
     PLANSFORM.style.position="static";
+    let ProgressBarStep3=document.querySelector("#progressBar div:nth-of-type(3)");
+    ProgressBarStep3.style.backgroundColor="grey";
+   PLANSFORM.style.visibility="visible";
+    ADDONSFORM.style.visibility="hidden";
 }
 
 //Go back from Summary to Addons
@@ -35,6 +43,10 @@ const Back3=(e)=>{
     SUMMARY.style.left="-200px";
     ADDONSFORM.style.left="280px";  
     ADDONSFORM.style.position="static";
+    let ProgressBarStep4=document.querySelector("#progressBar div:nth-of-type(4)");
+    ProgressBarStep4.style.backgroundColor="grey";
+    SUMMARY.style.visibility="hidden";
+    ADDONSFORM.style.visibility="visible";
 }
 
 
