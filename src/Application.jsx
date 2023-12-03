@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState} from 'react'
 import "../styles/test.css"
 import { Next1, Next2, Next3 } from '../components/Nexts.js'
 import { Back1, Back2, Back3} from '../components/Backs.js'
@@ -9,6 +9,8 @@ import { useNavigate } from 'react-router-dom'
 
 
 const Application = () => {
+
+  const[isAnnual,setIsAnnual]=useState(false)
 
 const navigate = useNavigate();
 
@@ -49,14 +51,15 @@ const HandleSubmit=(e)=>{
   backgroundColor:" rgb(29 78 216)",
   borderRadius:"5px",
   width:"100px",
-  height:"35px"
+  height:"35px",
+  cursor:"pointer",
  }
 
 
 
 
   return (
-
+<div>
     
 <div id="DISPLAY-CONTAINER"  >
         
@@ -86,20 +89,20 @@ const HandleSubmit=(e)=>{
               
               <div className="">
                 <label for="name">Name:</label>
-                <input style={FormInputStyle} type="text" name='name' id='name'/>
+                <input style={FormInputStyle} placeholder="e.g. Stephen King" type="text" name='name' id='name'/>
               </div>
 
 
               <div className=''>
                 <label for="email">Email:</label>
-                <input style={FormInputStyle} type="email" name='email' id='email'/>
+                <input style={FormInputStyle} type="email" placeholder='e.g. StephenKing@example.com' name='email' id='email'/>
               </div>
 
 
 
               <div className=' ' >
                 <label for="phone number">phone number:</label>
-                <input style={FormInputStyle} type="phone number" name='phone number' id='phone number'/>
+                <input style={FormInputStyle} type="phone number" placeholder='e.g. +1 234 567 890' name='phone number' id='phone number'/>
               </div>
               
               
@@ -112,28 +115,41 @@ const HandleSubmit=(e)=>{
 
 
 
-              <form  id="PLANS-FORM" className='p-4 '  >
+              {!isAnnual?<form  id="PLANS-FORM" className='p-4 '  >
               <h1 className=" text-2xl font-bold"> Pick your Plan</h1>
-              <span className="text-gray-200 ">Please provide your name,email address and phone number</span>
               
-              <div className="">
-                <label for="name">Name:</label>
-                <input type="text" name='name' id='name'/>
-              </div>
+               
+               
+                        <div className="PLANS-FORM-DIV">
+                        <img src="/images/icon-arcade.svg" alt="Our Arcade plan" />
+                          <h2>Arcade</h2>
+                          <span className='monthly-plan-price'>$9/mo</span>
+                      
+                        </div>
 
 
-              <div className=''>
-                <label for="email">Email:</label>
-                <input type="email" name='email' id='email'/>
-              </div>
+                      <div className="PLANS-FORM-DIV">
+                        <img src="/images/icon-advanced.svg" alt="Our advanced plan" />
+                        <h2>Advanced</h2>
+                          <span className='monthly-plan-price'>$12/mo</span>
+                          
+                        </div>
 
 
 
-              <div className=' ' >
-                <label for="phone number">phone number:</label>
-                <input type="phone number" name='phone number' id='phone number'/>
-              </div>
-              
+                        <div className="PLANS-FORM-DIV" >
+                        <img src="/images/icon-pro.svg" alt="Our Pro plan" />
+                        <h2>Pro</h2>
+                          <span className='monthly-plan-price'>$15/mo</span>
+                        </div>
+
+                   
+                  
+            <div id="toggle-plans">
+              <span>monthly</span>
+              <img  onClick={()=>setIsAnnual(prev=>!prev)} src={isAnnual?"/images/switch-right.svg":"/images/switch-left.svg"}/>
+              <span>annual</span>
+            </div>  
               <div className='inline-flex p-4'>
                 <button style={BtnStyle} onClick={Back1} class='text-white'>BACK</button>
                 <button style={BtnStyle} onClick={Next2} class='text-white  ml-2'>NEXT</button>
@@ -141,6 +157,62 @@ const HandleSubmit=(e)=>{
 
 
           </form>
+          
+          
+          
+          
+          
+          :<form  id="PLANS-FORM" className='p-4 '  >
+          <h1 className=" text-2xl font-bold"> Pick your Plan</h1>
+          
+           
+           
+                    <div className="PLANS-FORM-DIV">
+                    <img src="/images/icon-arcade.svg" alt="Our Arcade plan" />
+                      <h2>Arcade</h2>
+                      <div>$90/yr</div>
+                      <span>get 2 months free!</span>
+                  
+                    </div>
+
+
+                  <div className="PLANS-FORM-DIV">
+                    <img src="/images/icon-advanced.svg" alt="Our advanced plan" />
+                    <h2>Advanced</h2>
+                      <div>$120/yr</div>
+                      <span>get 2 months free!</span>
+                      
+                    </div>
+
+
+
+                    <div className="PLANS-FORM-DIV" >
+                    <img src="/images/icon-pro.svg" alt="Our Pro plan" />
+                    <h2>Pro</h2>
+                      <div>$150/yr</div>
+                      <span>get 2 months free!</span>
+                    </div>
+
+               
+              
+        <div id="toggle-plans">
+          <span>monthly</span>
+          <img  onClick={()=>setIsAnnual(prev=>!prev)} src={isAnnual?"/images/switch-right.svg":"/images/switch-left.svg"}/>
+          <span>annual</span>
+        </div>  
+          <div className='inline-flex p-4'>
+            <button style={BtnStyle} onClick={Back1} class='text-white'>BACK</button>
+            <button style={BtnStyle} onClick={Next2} class='text-white  ml-2'>NEXT</button>
+          </div>
+
+
+      </form>
+      
+          
+          
+          
+          
+          }
 
 
 
@@ -148,25 +220,43 @@ const HandleSubmit=(e)=>{
 
 
           <form  id="ADDONS-FORM" className='p-4 ' >
-              <h1 className=" text-2xl font-bold">Add-ons</h1>
-              <span className="text-gray-200 ">Please provide your name,email address and phone number</span>
+              <h1 className=" text-2xl font-bold"> Pick Add-ons</h1>
+              <div className="text-gray-200 ">Add-ons help to enhace your gaming experience</div>
               
-              <div className="">
-                <label for="name">Name:</label>
-                <input type="text" name='name' id='name'/>
+              <div className="ADDONS-FORM-DIV">
+               <input type="checkbox" name='online-service' id='online-service'/>
+
+              <div>
+                <h2>Online services</h2>
+                <div>Access to multiplayer games</div>
+               </div>
+
+               <span>$51/mo</span>
+
               </div>
 
 
-              <div className=''>
-                <label for="email">Email:</label>
-                <input type="email" name='email' id='email'/>
+              <div className='ADDONS-FORM-DIV'>
+              <input type="checkbox" name='larger-storage' id='larger-storage'/>
+            
+              <div>
+                <h2>Larger storage</h2>
+                <div>Extra 1TB of cloud storage</div>
+              </div>
+
+               <span>$52/mo</span>
               </div>
 
 
 
-              <div className=' ' >
-                <label for="phone number">phone number:</label>
-                <input type="phone number" name='phone number' id='phone number'/>
+              <div className='ADDONS-FORM-DIV ' >
+              <input type="checkbox" name='customizable-profile' id='customizable-profile'/>
+
+              <div>
+               <h2>Customizable profile</h2>
+               <div>Custom theme on your profile</div>
+              </div>
+               <span>$52/mo</span>
               </div>
               
               <div className='inline-flex p-4'>
@@ -180,25 +270,25 @@ const HandleSubmit=(e)=>{
 
 
           <form onSubmit={HandleSubmit} id="SUMMARY" className='p-4 ' >
-              <h1 className="text-2xl font-bold">SUMMARY</h1>
-              <span >Please provide your name,email address and phone number</span>
+              <h1 className="text-2xl font-bold">Finishing Up</h1>
+              <span class="SUMMARY-MSG" >Double-check everything looks OK before confirming.</span>
               
               <div className="">
-                <label for="name">Name:</label>
-                <input type="text" name='name' id='name'/>
+               
               </div>
 
 
               <div className=''>
-                <label for="email">Email:</label>
-                <input type="email" name='email' id='email'/>
+               
               </div>
 
 
+              <div className=' ' >
+               
+              </div>
 
               <div className=' ' >
-                <label for="phone number">phone number:</label>
-                <input type="phone number" name='phone number' id='phone number'/>
+               
               </div>
               
               <div className='inline-flex p-4'>
@@ -210,16 +300,16 @@ const HandleSubmit=(e)=>{
           </form>
         
        
-
+       
 
         </div>
 
-
-
-        
-
-
     </div>
+
+   
+
+</div>
+
   
   )
 }
