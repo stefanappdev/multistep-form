@@ -88,20 +88,20 @@ const HandleSubmit=(e)=>{
               <div  className="font-thin text-xs mb-4">Please provide your name,email address and phone number</div>
               
               <div className="">
-                <label for="name">Name:</label>
+                <label for="name">Name: </label>
                 <input style={FormInputStyle} placeholder="e.g. Stephen King" type="text" name='name' id='name'/>
               </div>
 
 
               <div className=''>
-                <label for="email">Email:</label>
+                <label for="email">Email: </label>
                 <input style={FormInputStyle} type="email" placeholder='e.g. StephenKing@example.com' name='email' id='email'/>
               </div>
 
 
 
               <div className=' ' >
-                <label for="phone number">phone number:</label>
+                <label for="phone number">phone number: </label>
                 <input style={FormInputStyle} type="phone number" placeholder='e.g. +1 234 567 890' name='phone number' id='phone number'/>
               </div>
               
@@ -115,33 +115,62 @@ const HandleSubmit=(e)=>{
 
 
 
-              {!isAnnual?<form  id="PLANS-FORM" className='p-4 '  >
-              <h1 className=" text-2xl font-bold"> Pick your Plan</h1>
-              
-               
-               
-                        <div className="PLANS-FORM-DIV">
-                        <img src="/images/icon-arcade.svg" alt="Our Arcade plan" />
-                          <h2>Arcade</h2>
-                          <span className='monthly-plan-price'>$9/mo</span>
-                      
-                        </div>
-
-
-                      <div className="PLANS-FORM-DIV">
-                        <img src="/images/icon-advanced.svg" alt="Our advanced plan" />
-                        <h2>Advanced</h2>
-                          <span className='monthly-plan-price'>$12/mo</span>
+             
+             
+             
+                <form  id="PLANS-FORM" className='p-4 '  >
+                 <h1 className=" text-2xl font-bold"> Pick your Plan</h1>
+                    {!isAnnual?   
+                    <div id="PLAN-OPTIONS">
+                          <div className="PLANS-FORM-DIV">
+                            <img src="/images/icon-arcade.svg" alt="Our Arcade plan" />
+                              <h2>Arcade</h2>
+                              <span className='monthly-plan-price'>$9/mo</span>
                           
+                            </div>
+
+
+                          <div className="PLANS-FORM-DIV">
+                            <img src="/images/icon-advanced.svg" alt="Our advanced plan" />
+                            <h2>Advanced</h2>
+                              <span className='monthly-plan-price'>$12/mo</span>
+                              
+                            </div>
+
+
+
+                            <div className="PLANS-FORM-DIV" >
+                            <img src="/images/icon-pro.svg" alt="Our Pro plan" />
+                            <h2>Pro</h2>
+                              <span className='monthly-plan-price'>$15/mo</span>
+                            </div>
                         </div>
+                        :
+                        
+                        <div id="PLAN-OPTIONS">
+                        <div className="PLANS-FORM-DIV">
+                          <img src="/images/icon-arcade.svg" alt="Our Arcade plan" />
+                            <h2>Arcade</h2>
+                            <span className='monthly-plan-price'>$90/yr</span>
+                        
+                          </div>
+
+
+                        <div className="PLANS-FORM-DIV">
+                          <img src="/images/icon-advanced.svg" alt="Our advanced plan" />
+                          <h2>Advanced</h2>
+                            <span className='monthly-plan-price'>$120/yr</span>
+                            
+                          </div>
 
 
 
-                        <div className="PLANS-FORM-DIV" >
-                        <img src="/images/icon-pro.svg" alt="Our Pro plan" />
-                        <h2>Pro</h2>
-                          <span className='monthly-plan-price'>$15/mo</span>
-                        </div>
+                          <div className="PLANS-FORM-DIV" >
+                          <img src="/images/icon-pro.svg" alt="Our Pro plan" />
+                          <h2>Pro</h2>
+                            <span className='monthly-plan-price'>$150/yr</span>
+                          </div>
+                      </div>  }
 
                    
                   
@@ -150,6 +179,8 @@ const HandleSubmit=(e)=>{
               <img  onClick={()=>setIsAnnual(prev=>!prev)} src={isAnnual?"/images/switch-right.svg":"/images/switch-left.svg"}/>
               <span>annual</span>
             </div>  
+            <br/>
+            <br/>
               <div className='inline-flex p-4'>
                 <button style={BtnStyle} onClick={Back1} class='text-white'>BACK</button>
                 <button style={BtnStyle} onClick={Next2} class='text-white  ml-2'>NEXT</button>
@@ -157,62 +188,13 @@ const HandleSubmit=(e)=>{
 
 
           </form>
-          
-          
-          
-          
-          
-          :<form  id="PLANS-FORM" className='p-4 '  >
-          <h1 className=" text-2xl font-bold"> Pick your Plan</h1>
-          
-           
-           
-                    <div className="PLANS-FORM-DIV">
-                    <img src="/images/icon-arcade.svg" alt="Our Arcade plan" />
-                      <h2>Arcade</h2>
-                      <div>$90/yr</div>
-                      <span>get 2 months free!</span>
-                  
-                    </div>
-
-
-                  <div className="PLANS-FORM-DIV">
-                    <img src="/images/icon-advanced.svg" alt="Our advanced plan" />
-                    <h2>Advanced</h2>
-                      <div>$120/yr</div>
-                      <span>get 2 months free!</span>
-                      
-                    </div>
-
-
-
-                    <div className="PLANS-FORM-DIV" >
-                    <img src="/images/icon-pro.svg" alt="Our Pro plan" />
-                    <h2>Pro</h2>
-                      <div>$150/yr</div>
-                      <span>get 2 months free!</span>
-                    </div>
-
-               
-              
-        <div id="toggle-plans">
-          <span>monthly</span>
-          <img  onClick={()=>setIsAnnual(prev=>!prev)} src={isAnnual?"/images/switch-right.svg":"/images/switch-left.svg"}/>
-          <span>annual</span>
-        </div>  
-          <div className='inline-flex p-4'>
-            <button style={BtnStyle} onClick={Back1} class='text-white'>BACK</button>
-            <button style={BtnStyle} onClick={Next2} class='text-white  ml-2'>NEXT</button>
-          </div>
-
-
-      </form>
+  
       
           
           
           
           
-          }
+          
 
 
 
@@ -273,23 +255,29 @@ const HandleSubmit=(e)=>{
               <h1 className="text-2xl font-bold">Finishing Up</h1>
               <span class="SUMMARY-MSG" >Double-check everything looks OK before confirming.</span>
               
-              <div className="">
-               
+              <div className="SUMMARY-DIV">
+               <div><strong>Arcade(Monthly)</strong></div>
+               <span>$90/yr</span>
               </div>
 
 
-              <div className=''>
-               
+              <div className='SUMMARY-DIV'>
+              <div><strong>Online Services</strong></div>
+               <span>+$10/yr</span>
               </div>
 
 
-              <div className=' ' >
-               
+              <div className='SUMMARY-DIV' >
+              <div><strong>Larger Storage</strong></div>
+               <span>+$20/yr</span>
               </div>
 
-              <div className=' ' >
-               
+              <div className='SUMMARY-DIV' >
+              <div><strong>Total(per year)</strong></div>
+               <span>$120/yr</span>
               </div>
+              
+
               
               <div className='inline-flex p-4'>
                 <button style={BtnStyle} onClick={Back3} class='text-white'>BACK</button>

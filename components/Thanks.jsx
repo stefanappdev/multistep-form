@@ -1,11 +1,15 @@
 import React from 'react'
+import '../styles/test.css'
 
 const Thanks = () => {
   return (
-    <div className='text-center text-3xl text-white' >
+    <div id='THANKS' >
       
+      <div id='THANKS-BOX'>
+        <img id='THANK-YOU' src="/images/icon-thank-you.svg" alt="Thank you"/>
+        <h1>thank you!</h1>
       
-      thank You
+      </div>
 
 
     </div>
